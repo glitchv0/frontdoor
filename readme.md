@@ -1,4 +1,4 @@
-# You can run the run.sh script to start the server.
+# You can run the run.sh script to start the server. (macOS/linux only)
 ```
 chmod +x run.sh
 ./run.sh
