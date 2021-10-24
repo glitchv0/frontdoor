@@ -27,3 +27,13 @@ Build the docker image locally
  ```
  kubectl apply -f frontdoor-elam.yaml
  ```
+
+ Get the IP and port of the service
+ ```
+ url=$(minikube service frontdoor-elam-svc --url)
+ ```
+
+ Test the service
+ ```
+curl -d {"Name":"test"} -H "Content-Type: application/json" $url
+ ```
