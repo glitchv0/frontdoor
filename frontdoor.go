@@ -7,24 +7,22 @@ import (
 )
 
 func handle(rw http.ResponseWriter, req *http.Request) {
+	// Loop through headers and print them
 	for name, headers := range req.Header {
 		for _, h := range headers {
 			fmt.Fprintf(rw, "%v: %v\n", name, h)
 		}
 	}
-
+	// Echo the body back
 	body := make([]byte, req.ContentLength)
 	req.Body.Read(body)
 	fmt.Fprintln(rw, string(body))
-	// if os.Getenv("varFromEnv") != "" {
+	// Echo the environment variable
 	fmt.Fprintln(rw, "varFromEnv:", os.Getenv("varFromEnv"))
-	// } else {
-	// 	fmt.Fprintln(rw, "varFromEnv: You did not sent varFromEnv")
-	// }
 }
 
 func main() {
-
+	// call the handle function and run the web server
 	http.HandleFunc("/", handle)
 	http.ListenAndServe(":8000", nil)
 }
