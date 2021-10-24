@@ -31,6 +31,6 @@ spec:
   - port: 8443
     targetPort: 8000
     protocol: TCP
-    NodePort: 32348
+    nodePort: 32348
   selector:
     app: frontdoor-elam
