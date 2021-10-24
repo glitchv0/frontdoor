@@ -8,6 +8,7 @@ FROM scratch
 
 COPY --from=builder /go/bin/frontdoor /go/bin/frontdoor
 COPY --from=builder /etc/passwd /etc/passwd
+USER scratchuser
 EXPOSE 8000
 ENV varFromEnv ${varFromEnv:-varFromEnv was notNotSet}
 ENTRYPOINT ["/go/bin/frontdoor"]
