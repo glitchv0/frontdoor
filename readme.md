@@ -1,3 +1,8 @@
+Pull this repo locally with:
+```
+git clone https://github.com/glitchv0/frontdoor.git
+```
+
 Have minikube installed
 ```
 minikube start
@@ -6,6 +11,11 @@ minikube start
 If on windows do this after start
 ```
 & minikube -p minikube docker-env --shell=powershell | Invoke-Expression
+```
+
+If on linux or mac
+```
+eval $(minikube docker-env) 
 ```
 
 Build the docker image locally
