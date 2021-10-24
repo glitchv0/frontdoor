@@ -1,10 +1,10 @@
-#You can run the run.sh script to start the server.
+# You can run the run.sh script to start the server.
 ```
 chmod +x run.sh
 ./run.sh
 ```
 
-#If you want to run them by hand, you can use the following commands:
+# If you want to run them by hand, you can use the following commands:
 
 Pull this repo locally with:
 ```
@@ -53,7 +53,7 @@ kubectl replace -f frontdoor-elam.yaml
 
 Then you can test the service again and the value will be changed.
 
-#Now to run nginx proxy
+# Now to run nginx proxy
 ```
 kubectl apply -f nginx.yaml
 ```
