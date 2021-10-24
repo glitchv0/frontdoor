@@ -1,10 +1,10 @@
-You can run the run.sh script to start the server.
+#You can run the run.sh script to start the server.
 ```
 chmod +x run.sh
 ./run.sh
 ```
 
-If you want to run them by hand, you can use the following commands:
+#If you want to run them by hand, you can use the following commands:
 
 Pull this repo locally with:
 ```
@@ -52,3 +52,16 @@ kubectl replace -f frontdoor-elam.yaml
 ```
 
 Then you can test the service again and the value will be changed.
+
+#Now to run nginx proxy
+```
+kubectl apply -f nginx.yaml
+```
+
+This will make a configmap for nginx to use, create a service for nginx to use, and then apply the deployment.  To test the service, you can use the following command:
+```
+nginxurl=$(minikube service nginx-custom --url)
+curl -d {"Name":"test"} -H "Content-Type: application/json" $nginxurl
+```
+
+You should see new headers, including one saying it is from nginx.
