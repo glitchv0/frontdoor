@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontdoor-elam
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontdoor-elam
+  template:
+    metadata:
+      labels:
+        app: frontdoor-elam
+    spec:
+      containers:
+      - name: frontdoor-elam
+        image: frontdoor-elam:v1
+        env:
+        - name: varFromEnv
+          value: "My value is changeable"
+        ports:
+        - containerPort: 8000
+

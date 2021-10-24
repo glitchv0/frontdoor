@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontdoor-elam
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontdoor-elam
+  template:
+    metadata:
+      labels:
+        app: frontdoor-elam
+      name: frontdoor-elam-pod
+    spec:
+      containers:
+      - name: frontdoor-elam
+        image: frontdoor-elam/frontdoor:v1
+        ports:
+        - containerPort: 8000
+          protocol: TCP
+        imagePullPolicy: Never
