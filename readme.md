@@ -23,7 +23,7 @@ If on windows do this after start
 
 If on linux or mac
 ```
-eval $(minikube -p minikube docker-env --shell=bash)  
+eval $(minikube -p minikube docker-env)  
 ```
 
 Build the docker image locally
@@ -46,7 +46,7 @@ Build the docker image locally
 curl -d {"Name":"test"} -H "Content-Type: application/json" url
  ```
 
- To update the env var, edit he frontdoot-elam.yaml file should be line 19.  Then reapply the deployment.
+ To update the env var, edit he frontdoor-elam.yaml file should be line 19.  Then reapply the deployment.
  ```
 kubectl replace -f frontdoor-elam.yaml
 ```
