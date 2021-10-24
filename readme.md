@@ -1,3 +1,11 @@
+You can run the run.sh script to start the server.
+```
+chmod +x run.sh
+./run.sh
+```
+
+If you want to run them by hand, you can use the following commands:
+
 Pull this repo locally with:
 ```
 git clone https://github.com/glitchv0/frontdoor.git
@@ -37,3 +45,10 @@ Build the docker image locally
  ```
 curl -d {"Name":"test"} -H "Content-Type: application/json" $url
  ```
+
+ To update the env var, edit he frontdoot-elam.yaml file should be line 19.  Then reapply the deployment.
+ ```
+kubectl replace -f frontdoor-elam.yaml
+```
+
+Then you can test the service again and the value will be changed.

@@ -1,5 +1,4 @@
 #!/bin/bash
-git clone https://github.com/glitchv0/frontdoor.git
 minikube start
 eval $(minikube docker-env) 
 docker build . -t frontdoor-elam:v1

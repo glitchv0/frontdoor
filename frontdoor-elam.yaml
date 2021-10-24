@@ -17,7 +17,6 @@ spec:
         env:
         - name: varFromEnv
           value: "My value is changeable"
-
         image: frontdoor-elam:v1
         ports:
         - containerPort: 8000
@@ -31,5 +30,7 @@ spec:
   ports:
   - port: 8443
     targetPort: 8000
+    protocol: TCP
+    NodePort: 32348
   selector:
     app: frontdoor-elam
