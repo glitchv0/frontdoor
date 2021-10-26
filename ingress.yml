@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontdoor-ingress
+spec:
+  rules:
+  - host: frontdoor.elam.sh
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontdoor-svc
+            port: 
+              number: 8443
