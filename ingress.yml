@@ -11,6 +11,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: frontdoor-svc
+            name: frontdoor-elam-svc
             port: 
               number: 8443
