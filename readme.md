@@ -23,7 +23,7 @@ If on windows do this after start
 
 If on linux or mac
 ```
-eval $(minikube docker-env) 
+eval $(minikube -p minikube docker-env)  
 ```
 
 Build the docker image locally
@@ -38,15 +38,15 @@ Build the docker image locally
 
  Get the IP and port of the service
  ```
- url=$(minikube service frontdoor-elam-svc --url)
+ minikube service frontdoor-elam-svc --url
  ```
 
- Test the service
+ Test the service, the url should be from the above command
  ```
-curl -d {"Name":"test"} -H "Content-Type: application/json" $url
+curl -d {"Name":"test"} -H "Content-Type: application/json" url
  ```
 
- To update the env var, edit he frontdoot-elam.yaml file should be line 19.  Then reapply the deployment.
+ To update the env var, edit he frontdoor-elam.yaml file should be line 19.  Then reapply the deployment.
  ```
 kubectl replace -f frontdoor-elam.yaml
 ```
@@ -60,8 +60,8 @@ kubectl apply -f nginx.yaml
 
 This will make a configmap for nginx to use, create a service for nginx to use, and then apply the deployment.  To test the service, you can use the following command:
 ```
-nginxurl=$(minikube service nginx-custom --url)
-curl -d {"Name":"test"} -H "Content-Type: application/json" $nginxurl
+minikube service nginx-custom --url
+curl -d {"Name":"test"} -H "Content-Type: application/json" nginxurl
 ```
 
 You should see new headers, including one saying it is from nginx.
