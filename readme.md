@@ -16,11 +16,6 @@ Have minikube installed
 minikube start
 ```
 
-If on windows do this after start
-```
-& minikube -p minikube docker-env --shell=powershell | Invoke-Expression
-```
-
 If on linux or mac
 ```
 eval $(minikube -p minikube docker-env)  
